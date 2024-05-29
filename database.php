@@ -11,8 +11,4 @@ function db_connect() {
     echo 'Connection failed: ' . $e->getMessage();
   }
 }
-
 ?>
-
-
-

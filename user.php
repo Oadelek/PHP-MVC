@@ -27,7 +27,7 @@ Class User {
       }
   
       // Validate password strength
-      if (!validate_password($password)) {
+      if (!$this->validate_password($password)) {
           return "Password does not meet the minimum security requirements";
       }
   
@@ -46,12 +46,33 @@ Class User {
       }
   }
 
-  
+  private function validate_password($password){
+      // Minimum length
+      $min_length = 8;
+      if (strlen($password) < $min_length) {
+          return false;
+      }
+
+      // At least one uppercase letter
+      if (!preg_match('/[A-Z]/', $password)) {
+          return false;
+      }
+
+      // At least one lowercase letter
+      if (!preg_match('/[a-z]/', $password)) {
+          return false;
+      }
+
+      // At least one digit
+      if (!preg_match('/\d/', $password)) {
+          return false;
+      }
+
+      // At least one special character
+      if (!preg_match('/[^a-zA-Z\d]/', $password)) {
+          return false;
+      }
+      return true;
+  } 
 }
-
-
-
-
-
-
 ?>

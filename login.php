@@ -1,6 +1,9 @@
 <?php
 session_start();
+
 $error = isset($_GET['error']) ? urldecode($_GET['error']) : '';
+$success = isset($_GET['success']) ? urldecode($_GET['success']) : '';
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,11 +66,13 @@ $error = isset($_GET['error']) ? urldecode($_GET['error']) : '';
     <div class="login-container">
         <h1>Login</h1>
         <?php if (!empty($error)) echo "<p class='error-message'>$error</p>"; ?>
+        <?php if (!empty($success)) echo "<p class='success-message'>$success</p>"; ?>
         <form action="validate.php" method="post">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="Login">
         </form>
+        <p>Don't have an account? <a href="register.php">Register</a></p>
     </div>
 </body>
 </html>

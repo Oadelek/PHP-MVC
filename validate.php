@@ -1,15 +1,11 @@
 <?php
 session_start();
 
-//$valid_username = "mike";
-//$valid_password = "password";
 require_once 'database.php';
 require_once 'user.php';
 
-
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
-//$_SESSION['username'] = $username;
 
 $user = new User();
 
