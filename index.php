@@ -57,4 +57,4 @@ $currentDate = date('l, F jS, Y');
         <a href="logout.php">Logout</a>
     </div>
 </body>
-</html>
+</html> 
